@@ -2,7 +2,7 @@
 # Dual pivot Quicksort algorithm 
 ## by dolev dublon
 
-check my repository  [github repository](https://duckduckgo.com)
+check my repository  [github repository](https://github.com/dolev146/Dual-pivot-Quicksort-algorithm)
 
 ![java](javaimage.svg)
 
