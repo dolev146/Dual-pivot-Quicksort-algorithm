@@ -2,6 +2,8 @@
 # Dual pivot Quicksort algorithm 
 ## by dolev dublon
 
+check my repository  [github repository](https://duckduckgo.com)
+
 ![java](javaimage.svg)
 
   whats up !
