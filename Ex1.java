@@ -1,6 +1,10 @@
 /**
  * DualQuikSort check out my github repository for more info
  * 
+ * best case O(N * log(n))
+ * 
+ * Worst Case O(n^2)
+ * 
  * https://github.com/dolev146/Dual-pivot-Quicksort-algorithm
  * 
  * whats up ! The code in front of you sorts an array of integer numbers By
@@ -38,7 +42,7 @@ public class Ex1 {
         if (small < big) {
 
             // Partition is the main array we will work with
-            
+
             int[] PartitionArr;
             PartitionArr = breakApartAndBringTogether(arr, small, big);
 
@@ -46,7 +50,8 @@ public class Ex1 {
             // 0 index will be the leftPivot pivot and
             // 1 index will be the right pivot
             dualPivotQuickSort(arr, PartitionArr[0] + 1, PartitionArr[1] - 1);
-            // so now the stuff is splitted to three arrays and at the end we will do the calculations :)
+            // so now the stuff is splitted to three arrays and at the end we will do the
+            // calculations :)
             dualPivotQuickSort(arr, PartitionArr[1] + 1, big);
         }
     }
@@ -57,12 +62,9 @@ public class Ex1 {
         arr[p] = temp;
     }
 
-    
-
     static int[] breakApartAndBringTogether(int[] arr, int small, int big) {
         if (arr[small] > arr[big])
             replaceWithAdress(arr, small, big);
-
 
         // initiolazing some of the indexing counters that will help us in the proccess
         int bottomIndex1 = small + 1;
@@ -71,20 +73,19 @@ public class Ex1 {
         int leftPivot = arr[small];
         int RightPivot = arr[big];
 
-        // exit when top is less than bottom 
+        // exit when top is less than bottom
         // inside the loop we just follow the proccess that is required for making
-        // the algorithm work properly as expected 
+        // the algorithm work properly as expected
         // so we use some logic and makeing it work with love and bug free
         while (bottomIndex2 <= topIndex) {
 
             if (arr[bottomIndex2] < leftPivot) {
                 replaceWithAdress(arr, bottomIndex2, bottomIndex1);
                 bottomIndex1++;
-            } 
-            else if (arr[bottomIndex2] >= RightPivot) {
+            } else if (arr[bottomIndex2] >= RightPivot) {
                 while (arr[topIndex] > RightPivot && bottomIndex2 < topIndex) {
                     topIndex--;
-                }                    
+                }
                 replaceWithAdress(arr, bottomIndex2, topIndex);
                 topIndex--;
                 if (arr[bottomIndex2] < leftPivot) {
@@ -100,7 +101,7 @@ public class Ex1 {
         // now we are bring the pivots to their right places where they belong.
         replaceWithAdress(arr, small, bottomIndex1);
         replaceWithAdress(arr, big, topIndex);
-        // returning and array of the indexes of the pivots 
+        // returning and array of the indexes of the pivots
         return new int[] { bottomIndex1, topIndex };
     }
 
